@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Rachel Leal | Estética Dental Humanizada em Recife</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --rose-principal: #d09395;
+            --rose-vibrante: #f97a7e;
+            --off-white: #faf7f5;
+            --branco: #ffffff;
+            --texto-escuro: #4a3f3d;
+            --texto-claro: #7a6b68;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--texto-escuro);
+            background-color: var(--branco);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            color: var(--rose-principal);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ================= BOTÕES ================= */
+        .btn {
+            display: inline-block;
+            background-color: var(--rose-principal);
+            color: var(--branco);
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(208, 147, 149, 0.3);
+            border: 1px solid transparent;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: var(--rose-vibrante);
+            transform: translateY(-3px);
+            color: var(--branco);
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--rose-vibrante); }
+
+        /* ================= HERO (BANNER) ================= */
+        .hero {
+            background: url('Gemini_Generated_Image_eq0rq4eq0rq4eq0r.png') center/cover no-repeat;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 580px;
+            margin-left: 180px; 
+            padding-top: 40px;
+            text-align: left;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--texto-escuro);
+        }
+        .hero h1 span { color: var(--rose-vibrante); font-style: italic; }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--texto-escuro);
+            margin-bottom: 30px;
+        }
+
+        /* ================= AVISO PARTICULAR (DESTAQUE) ================= */
+        .aviso-particular {
+            background-color: var(--texto-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 1.2rem;
+            border-bottom: 5px solid var(--rose-vibrante);
+        }
+        .aviso-particular i { color: var(--rose-vibrante); margin-right: 10px; font-size: 1.5rem; }
+        .aviso-particular p.sub { font-size: 0.95rem; opacity: 0.8; margin-top: 8px; font-weight: 300; }
+
+        /* ================= SOBRE ================= */
+        .sobre { padding: 80px 0; background-color: var(--off-white); }
+        .sobre-flex { display: flex; align-items: flex-start; gap: 50px; }
+        .sobre-img { flex: 0 0 45%; }
+        .sobre-img img {
+            width: 100%;
+            border-radius: 20px 100px 20px 20px;
+            box-shadow: -15px 15px 0px var(--rose-principal);
+        }
+        .sobre-texto { flex: 1; }
+        .sobre-texto h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .sobre-texto p { margin-bottom: 15px; text-align: justify; }
+
+        .bloco-diferencial {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(208, 147, 149, 0.3);
+        }
+        .bloco-diferencial h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--rose-principal);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ================= TÉCNICA E CUIDADO ================= */
+        .tecnica { padding: 80px 0; background-color: var(--branco); }
+        .grid-tecnica { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .tecnica-conteudo h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .tecnica-conteudo p { text-align: justify; }
+
+        .carrossel-tecnica-wrapper {
+            position: relative;
+            width: 100%;
+            padding: 0 50px;
+        }
+        .trilho-tecnica {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            padding: 10px 0;
+        }
+        .trilho-tecnica::-webkit-scrollbar { display: none; }
+        .card-foto-tecnica {
+            flex: 0 0 calc(50% - 10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background-color: var(--branco);
+        }
+        .card-foto-tecnica img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .seta-tecnica {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--branco);
+            border: 2px solid var(--rose-principal);
+            color: var(--rose-principal);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .seta-tecnica:hover { background: var(--rose-principal); color: var(--branco); }
+        .seta-tecnica-esq { left: -10px; }
+        .seta-tecnica-dir { right: -10px; }
+
+        /* ================= PROCEDIMENTOS ================= */
+        .procedimentos {
+            padding: 90px 0;
+            background-color: var(--off-white);
+            text-align: center;
+            position: relative;
+        }
+        .procedimentos h2 { font-size: 2.5rem; margin-bottom: 10px; color: var(--texto-escuro); }
+        .procedimentos p.desc { color: var(--texto-claro); margin-bottom: 50px; font-size: 1.1rem; }
+
+        .carrossel-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        .grid-procedimentos {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            padding: 20px 5px;
+        }
+        .grid-procedimentos::-webkit-scrollbar { display: none; }
+
+        .card-procedimento {
+            flex: 0 0 calc(33.333% - 20px);
+            background: var(--branco);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(74, 63, 61, 0.06);
+            border: 1px solid rgba(208, 147, 149, 0.2);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+        .card-procedimento:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(208, 147, 149, 0.15);
+            border-color: var(--rose-vibrante);
+        }
+
+        .icone-card {
+            width: 60px; height: 60px;
+            background-color: rgba(208, 147, 149, 0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; color: var(--rose-vibrante); font-size: 1.5rem;
+        }
+
+        .card-procedimento h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--texto-escuro); font-family: 'Playfair Display', serif; }
+        .card-procedimento p { font-size: 0.95rem; color: var(--texto-claro); line-height: 1.6; }
+
+        .seta-carrossel {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--branco);
+            border: 2px solid var(--rose-principal);
+            color: var(--rose-principal);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .seta-carrossel:hover { background: var(--rose-principal); color: var(--branco); }
+        .seta-esq { left: -10px; }
+        .seta-dir { right: -10px; }
+
+        /* ================= METODOLOGIA ================= */
+        .metodologia {
+            padding: 80px 0;
+            background-color: var(--branco);
+            border-top: 1px solid rgba(208, 147, 149, 0.15);
+            border-bottom: 1px solid rgba(208, 147, 149, 0.15);
+        }
+        .metodologia h2 { margin-bottom: 20px; font-size: 2.5rem; }
+        .metodologia-flex { display: flex; align-items: center; gap: 50px; }
+        .metodologia-img img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        /* ================= ESTRUTURA ================= */
+        .estrutura { padding: 80px 0; text-align: center; background-color: var(--off-white); }
+        .estrutura h2 { font-size: 2.5rem; margin-bottom: 40px; }
+        .galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .galeria img { width: 100%; height: 300px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        /* ================= RESULTADOS ================= */
+        .resultados { padding: 80px 0; background-color: var(--branco); text-align: center; }
+        .resultados h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .resultados p.desc { color: var(--texto-claro); margin-bottom: 50px; font-size: 1.1rem; }
+        
+        .subtitulo-case {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--rose-principal);
+            margin: 40px 0 25px 0;
+            text-align: left;
+            border-left: 4px solid var(--rose-vibrante);
+            padding-left: 15px;
+        }
+
+        .grid-resultados { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 40px; }
+        .card-resultado img {
+            width: 100%; height: 260px; object-fit: cover;
+            border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px; background-color: #eee;
+        }
+        .card-resultado h4 { color: var(--texto-escuro); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.1rem; }
+        .grid-tartaro { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin: 0 auto; }
+        .disclaimer-resultados { font-size: 0.85rem; color: #999; font-style: italic; margin-top: 40px; }
+
+        /* ================= CONTATO ================= */
+        .contato { padding: 80px 0; background-color: var(--off-white); }
+        .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .contato-img img { 
+            width: 100%; 
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            margin: 0 auto; 
+            display: block; 
+        }
+        .card-endereco { background: var(--branco); padding: 35px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-bottom: 20px; text-align: left; }
+        .card-endereco h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .botoes-contato { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+        
+        .mapa img { width: 100%; height: 180px; object-fit: cover; border-radius: 15px 15px 0 0; }
+        .mapa iframe { width: 100%; height: 250px; border: none; border-radius: 15px; margin-top: 15px; }
+
+        /* ================= WPP FLUTUANTE ================= */
+        .wpp-flutuante {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 9999; transition: transform 0.3s;
+        }
+        .wpp-flutuante:hover { transform: scale(1.1); color: white; }
+
+        /* ================= RESPONSIVO MOBILE CORRIGIDO ================= */
+        @media (max-width: 900px) {
+        /* 1. CORREÇÃO DO BANNER: Ajuste da largura e remoção do espaço em branco */
+        .hero {
+            min-height: auto;
+            background-size: 100% auto; /* Garante que a foto ocupe 100% da largura sem distorcer */
+            background-position: top center;
+            padding-top: 50vw; /* Reduz significativamente o buraco entre a foto e o texto */
+            padding-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .hero-overlay {
+            /* Ajuste no degradê para acompanhar a nova altura da foto */
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 35vw, rgba(255, 255, 255, 0.9) 48vw, rgba(255, 255, 255, 1) 100%);
+        }
+        .hero-content {
+            margin-left: 0;
+            padding: 10px 15px;
+            text-align: center;
+            max-width: 100%;
+            background: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
+            margin-top: 0;
+        }
+        
+        /* REDUZIR O EFEITO "ZOOM" */
+        .hero h1 { font-size: 1.8rem; line-height: 1.25; margin-bottom: 10px; }
+        .hero p { font-size: 0.95rem; margin-bottom: 20px; }
+        
+        .sobre, .tecnica, .procedimentos, .metodologia, .estrutura, .resultados, .contato { 
+            padding: 50px 0; 
+        }
+        
+        .sobre-texto h2, .tecnica-conteudo h2, .procedimentos h2, .metodologia h2, .estrutura h2, .resultados h2, .card-endereco h3 {
+            font-size: 1.6rem; 
+        }
+        p { font-size: 0.95rem; }
+        
+        /* 4. CORREÇÃO DA FOTO FINAL (LOCALIZAÇÃO) QUE ESTAVA PEQUENA */
+        .sobre-flex, .grid-tecnica, .metodologia-flex, .contato-grid { 
+            display: flex; /* Adicionado para sobrescrever o "display: grid" do desktop */
+            flex-direction: column; 
+            text-align: center; 
+            gap: 25px;
+        }
+        .sobre-img, .contato-img {
+            width: 100%;
+            flex: none;
+            margin-bottom: 0;
+        }
+        .contato-img img {
+            max-width: 100%; /* A foto agora ocupará toda a largura da tela do celular */
+            border-radius: 20px;
+        }
+
+        .galeria, .grid-resultados, .grid-tartaro { 
+            grid-template-columns: 1fr; 
+        }
+        
+        /* 3. MOSTRAR 2 CARDS DE PROCEDIMENTOS NO MOBILE */
+        .card-procedimento { 
+            flex: 0 0 45%; /* Diminui a largura de cada card para caberem 2 na tela */
+            padding: 20px 15px; /* Reduz o espaçamento interno para os textos caberem bem */
+        }
+        .icone-card {
+            width: 45px; height: 45px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .card-procedimento h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .card-procedimento p { font-size: 0.8rem; line-height: 1.4; }
+        
+        .card-foto-tecnica { 
+            flex: 0 0 85%; 
+        }
+        
+        /* 2. GUIA (MENU SUPERIOR) EM 1 LINHA */
+        .nav-container {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .nav-links { 
+            display: flex; 
+            flex-wrap: nowrap; /* Força tudo a ficar em 1 linha */
+            overflow-x: auto; /* Permite arrastar para o lado (scroll) se a tela for muito pequena */
+            justify-content: flex-start;
+            width: 100%;
+            gap: 12px;
+            padding-bottom: 8px; /* Dá um espacinho pro dedo não esbarrar embaixo */
+            -webkit-overflow-scrolling: touch; /* Deixa o scroll suave no celular */
+        }
+        .nav-links::-webkit-scrollbar { display: none; } /* Esconde a barra de rolagem cinza */
+        
+        .nav-links a { 
+            font-size: 0.75rem; 
+            white-space: nowrap; /* Impede que as palavras do link se quebrem */
+        }
+        .nav-links .btn { 
+            padding: 8px 15px; 
+            font-size: 0.75rem; 
+            width: auto; 
+            max-width: none;
+            white-space: nowrap; /* Botão também não quebra a linha */
+        }
+
+        .subtitulo-case { 
+            text-align: center; 
+            border-left: none; 
+            border-bottom: 3px solid var(--rose-vibrante); 
+            padding-bottom: 10px; 
+            font-size: 1.3rem;
+        }
+        .carrossel-wrapper, .carrossel-tecnica-wrapper { 
+            padding: 0 5px; 
+        }
+        .seta-carrossel, .seta-tecnica { 
+            display: none; 
+        }
+        .botoes-contato {
+            justify-content: center;
+        }
+        .card-endereco {
+            text-align: center;
+        }
+    }
+    
+    
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR COM LOGO OFICIAL -->
+    <header>
+        <div class="container nav-container">
+            <a href="#">
+                <img src="Sem fundo -  (6) (2).png" alt="Dra. Rachel Leal Logo" class="logo-img">
+            </a>
+            <nav class="nav-links">
+                <a href="https://www.instagram.com/dra.rachelleal?igsh=am94cXN0OWVzZ25w" target="_blank"><i class="fab fa-instagram" style="font-size: 1.2rem; color: var(--rose-principal);"></i></a>
+                <a href="#sobre">Sobre</a>
+                <a href="#procedimentos">Procedimentos</a>
+                <a href="#resultados">Resultados</a>
+                <a href="#contato">Localização</a>
+                <a href="https://wa.me/5581996225936" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO / BANNER PRINCIPAL -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Sorria sem medo, sem pressa e <span>sem julgamento.</span></h1>
+            <p>Odontologia estética humanizada focada no seu conforto emocional e na excelência técnica. Transforme seu sorriso no seu tempo.</p>
+            <a href="https://wa.me/5581996225936?text=Olá,%20Dra.%20Rachel!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." class="btn" target="_blank"><i class="fab fa-whatsapp"></i> Falar com a Equipe</a>
+        </div>
+    </section>
+
+    <!-- DESTAQUE: NÃO ACEITA PLANO -->
+    <div class="aviso-particular">
+        <div class="container">
+            <i class="fas fa-gem"></i> <strong>ATENDIMENTO EXCLUSIVAMENTE PARTICULAR</strong>
+            <p class="sub">Para garantir uma consulta focada 100% em você e com tempo de qualidade, não aceitamos planos de saúde ou convênios. (Emitimos recibo para reembolso).</p>
+        </div>
+    </div>
+
+    <!-- SOBRE MIM -->
+    <section id="sobre" class="sobre">
+        <div class="container sobre-flex">
+            <div class="sobre-img">
+                <img src="IMG_4812.jpg" alt="Dra. Rachel Leal Sorrindo">
+            </div>
+            <div class="sobre-texto">
+                <h2>A profissional que eu precisava na infância.</h2>
+                <p>Existe um tipo de paciente que eu entendo profundamente: aquele que evita sorrir em fotos por vergonha e que carrega o desconforto de ter adiado o cuidado com o sorriso.</p>
+                <p>Quando pequena, sentia pânico de dentista. Usei aparelho por 8 anos e chorava antes de cada consulta. Foi esse medo que me fez decidir a odontologia — para ser, hoje, a dentista que acolhe com calma, sem pressa e sem julgamentos.</p>
+                
+                <div class="bloco-diferencial">
+                    <h3>O diferencial da Dra. Rachel</h3>
+                    <p>A maioria dos consultórios foca só no resultado estético. A Dra. Rachel trabalha com dois pilares, sempre juntos: o acolhimento emocional de quem já teve uma experiência ruim com dentista, e a excelência técnica em cada tipo de procedimento.</p>
+                    <p>Isso significa que, antes de decidir qualquer coisa, você conversa com a Dra. parte por parte do seu tratamento. Sem cobrança por ter demorado a cuidar do sorriso, sem termos técnicos difíceis de entender. Você entende cada etapa, no seu tempo.</p>
+                    <p>O resultado não é só um sorriso mais bonito. É poder sorrir sem pensar duas vezes — nas fotos, nas reuniões, nos encontros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TÉCNICA E CUIDADO -->
+    <section class="tecnica">
+        <div class="container grid-tecnica">
+            <div class="tecnica-conteudo">
+                <h2>Acolhimento & Excelência</h2>
+                <p>Trabalho com dois pilares inegociáveis: o conforto emocional do paciente e a precisão técnica nos mínimos detalhes, usando equipamentos como ultrassom de última geração.</p>
+            </div>
+            
+            <div class="carrossel-tecnica-wrapper">
+                <button class="seta-tecnica seta-tecnica-esq" onclick="rolarTecnica(-1)"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="trilho-tecnica" id="trilhoTecnica">
+                    <div class="card-foto-tecnica">
+                        <img src="IMG_20260704_100233249_HDR_AE.jpg" alt="Atendimento na Cadeira">
+                    </div>
+                    <div class="card-foto-tecnica">
+                        <img src="IMG_20260704_110649780.jpg" alt="Biossegurança e Precisão">
+                    </div>
+                    <div class="card-foto-tecnica">
+                        <img src="IMG_20260704_093933880 (1).jpg" alt="Atendimento Humanizado">
+                    </div>
+                    <div class="card-foto-tecnica">
+                        <img src="IMG_20260704_093753538.jpg" alt="Consultório Dra. Rachel">
+                    </div>
+                    <div class="card-foto-tecnica">
+                        <img src="sala 5.jpg" alt="Dra. Rachel Leal">
+                    </div>
+                </div>
+
+                <button class="seta-tecnica seta-tecnica-dir" onclick="rolarTecnica(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCEDIMENTOS -->
+    <section id="procedimentos" class="procedimentos">
+        <div class="container">
+            <h2>Nossos Procedimentos</h2>
+            <p class="desc">Cuidado odontológico completo, unindo saúde, funcionalidade e estética para o seu sorriso.</p>
+        </div>
+        
+        <div class="carrossel-wrapper">
+            <button class="seta-carrossel seta-esq" onclick="rolarCarrossel(-1)"><i class="fas fa-chevron-left"></i></button>
+            
+            <div class="grid-procedimentos" id="trilhoProcedimentos">
+                
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <h3>Clareamento dental</h3>
+                        <p>Aquele dente que parece sempre "amarelado" nas fotos, mesmo com escovação em dia, tem solução simples. O clareamento dental em Recife feito com acompanhamento de perto reduz a sensibilidade e devolve a confiança de sorrir abertamente.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-tooth"></i></div>
+                        <h3>Facetas de resina</h3>
+                        <p>Para quem quer um sorriso mais alinhado e uniforme sem esperar meses ou fazer um procedimento invasivo, as facetas de resina em Recife são uma transformação visível em poucas sessões, com aparência natural.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-gem"></i></div>
+                        <h3>Lentes de contato dental</h3>
+                        <p>Versão refinada para transformação do sorriso, indicada para quem busca resultado duradouro e estético. A Dra. Rachel explica com calma qual opção — resina ou porcelana — faz sentido pra sua rotina.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-hand-holding-medical"></i></div>
+                        <h3>Profilaxia (limpeza)</h3>
+                        <p>Feita sem julgamento e com equipamento ultrassônico, que remove o tártaro antigo por vibração sem a fricção incômoda dos instrumentos manuais, além de pastas de alta tecnologia contra manchas.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Restaurações</h3>
+                        <p>Quando um dente incomoda — seja cárie ou fratura pequena —, a restauração devolve função e estética sem chamar atenção. O objetivo é que ninguém perceba o reparo.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-puzzle-piece"></i></div>
+                        <h3>Reconstrução dental</h3>
+                        <p>Para dentes mais desgastados ou danificados, a reconstrução devolve forma, proporção e naturalidade ao sorriso, mantendo a harmonia completa da arcada.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-crown"></i></div>
+                        <h3>Coroa dentária</h3>
+                        <p>Quando o dente não tem estrutura suficiente para restauração simples, a coroa protege e devolve resistência total, sem abrir mão da estética natural.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-feather"></i></div>
+                        <h3>Tratamento para sensibilidade</h3>
+                        <p>Para quem sente pontada com gelado ou quente e deixou de aproveitar alimentos. Tratamento com cremes dessensibilizantes e vernizes fluoretados para você comer sem pensar duas vezes.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-magic"></i></div>
+                        <h3>Microabrasão do esmalte</h3>
+                        <p>Manchas brancas ou amareladas superficiais tratadas com pasta levemente abrasiva, um procedimento simples que devolve a uniformidade perfeita ao esmalte do dente.</p>
+                    </div>
+                </div>
+
+                <div class="card-procedimento">
+                    <div>
+                        <div class="icone-card"><i class="fas fa-comments"></i></div>
+                        <h3>Consulta de avaliação</h3>
+                        <p>Antes de qualquer procedimento, uma conversa para entender seu sorriso, o que te incomoda e qual caminho faz sentido pro seu caso. O primeiro passo para recuperar sua alegria de sorrir.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="seta-carrossel seta-dir" onclick="rolarCarrossel(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- METODOLOGIA -->
+    <section class="metodologia">
+        <div class="container metodologia-flex">
+            <div>
+                <h2>Nenhuma dúvida vai com você para casa.</h2>
+                <p>Cada etapa do seu tratamento estético (seja clareamento, facetas ou restaurações) é explicada com total clareza. Você no controle do seu sorriso.</p>
+            </div>
+            <div class="metodologia-img">
+                <img src="IMG_4865.jpg" alt="Dra Rachel Leal - Metodologia">
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTRUTURA -->
+    <section class="estrutura">
+        <div class="container">
+            <h2>Espaço de Atendimento</h2>
+            <div class="galeria">
+                <img src="sala2.webp" alt="Recepção">
+                <img src="sala 3.webp" alt="Cantinho do Café">
+                <img src="sala.webp" alt="Sala Clínica">
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section id="resultados" class="resultados">
+        <div class="container">
+            <h2>Evolução de Casos Clínicos</h2>
+            <p class="desc">Acompanhe a devolução da estética, saúde e do tom natural.</p>
+            
+            <div class="subtitulo-case">Case 1: Transformação com Clareamento Dental</div>
+            <div class="grid-resultados">
+                <div class="card-resultado">
+                    <img src="antes.jpg" alt="Foto Antes do Clareamento">
+                    <h4>1. Fase Inicial</h4>
+                    <p style="font-size: 0.9rem; color: #777;">Pigmentação natural acentuada.</p>
+                </div>
+                <div class="card-resultado">
+                    <img src="durante.jpg" alt="Foto Durante o Clareamento">
+                    <h4>2. Evolução</h4>
+                    <p style="font-size: 0.9rem; color: #777;">Clareamento em andamento seguro.</p>
+                </div>
+                <div class="card-resultado">
+                    <img src="depois.png" alt="Foto Depois do Clareamento">
+                    <h4>3. Resultado Final</h4>
+                    <p style="font-size: 0.9rem; color: #777;">Sorriso radiante e iluminado.</p>
+                </div>
+            </div>
+
+            <div class="subtitulo-case" style="margin-top: 60px;">Case 2: Saúde Gengival & Limpeza de Tártaro (Profilaxia)</div>
+            <div class="grid-tartaro">
+                <div class="card-resultado">
+                    <img src="tartaro antes.jpeg" alt="Antes da Limpeza de Tártaro">
+                    <h4>Antes da Profilaxia</h4>
+                    <p style="font-size: 0.9rem; color: #777;">Acúmulo de cálculo e inflamação gengival.</p>
+                </div>
+                <div class="card-resultado">
+                    <img src="tartaro depois.jpeg" alt="Depois da Limpeza de Tártaro">
+                    <h4>Depois da Limpeza</h4>
+                    <p style="font-size: 0.9rem; color: #777;">Gengiva saudável e dentes livres de tártaro.</p>
+                </div>
+            </div>
+
+            <p class="disclaimer-resultados">* Imagens autorizadas. Os resultados na odontologia podem variar de acordo com as características biológicas individuais de cada paciente (Resolução CFO).</p>
+        </div>
+    </section>
+
+    <!-- CONTATO E MAPA -->
+    <section id="contato" class="contato">
+        <div class="container contato-grid">
+            
+            <div class="contato-img">
+                <img src="IMG_4862.jpg" alt="Dra Rachel Leal - Agendamento">
+            </div>
+
+            <div>
+                <div class="card-endereco">
+                    <h3>Empresarial Albert Einstein</h3>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--rose-principal);"></i> R. Frei Matias Teves, Nº 280 - Ilha do Leite<br>Sala 611 - Recife / PE</p>
+                    
+                    <div class="botoes-contato">
+                        <a href="https://wa.me/5581996225936" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div class="mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.404285740445!2d-34.8953158240212!3d-8.060195580665975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18c4ba1f3a5b%3A0x8e8c89c89498e8b2!2sR.%20Frei%20Matias%20Teves%2C%20280%20-%20Ilha%20do%20Leite%2C%20Recife%20-%20PE%2C%2050070-430!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WPP FLUTUANTE -->
+    <a href="https://wa.me/5581996225936" class="wpp-flutuante" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+        function rolarTecnica(direcao) {
+            const trilho = document.getElementById('trilhoTecnica');
+            const scrollAmount = 300;
+            trilho.scrollBy({ left: direcao * scrollAmount, behavior: 'smooth' });
+        }
+
+        function rolarCarrossel(direcao) {
+            const trilho = document.getElementById('trilhoProcedimentos');
+            const scrollAmount = 350;
+            trilho.scrollBy({ left: direcao * scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
