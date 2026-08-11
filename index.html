@@ -348,6 +348,31 @@
         .grid-tartaro { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin: 0 auto; }
         .disclaimer-resultados { font-size: 0.85rem; color: #999; font-style: italic; margin-top: 40px; }
 
+        /* ================= AVALIAÇÕES GOOGLE ================= */
+        .avaliacoes { padding: 80px 0; background-color: var(--off-white); text-align: center; }
+        .avaliacoes h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .avaliacoes p.desc { color: var(--texto-claro); margin-bottom: 50px; font-size: 1.1rem; }
+        .grid-avaliacoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .card-avaliacao {
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(74, 63, 61, 0.06);
+            border: 1px solid rgba(208, 147, 149, 0.2);
+            text-align: left;
+        }
+        .estrelas-avaliacao { color: var(--rose-vibrante); font-size: 1.1rem; margin-bottom: 12px; }
+        .texto-avaliacao { font-size: 0.95rem; color: var(--texto-escuro); line-height: 1.6; margin-bottom: 16px; }
+        .autor-avaliacao { font-weight: 600; font-size: 0.9rem; color: var(--texto-claro); }
+
+
+        
         /* ================= CONTATO ================= */
         .contato { padding: 80px 0; background-color: var(--off-white); }
         .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
@@ -504,6 +529,8 @@
         .card-endereco {
             text-align: center;
         }
+          .avaliacoes { padding: 50px 0; }
+        .avaliacoes h2 { font-size: 1.6rem; }  
     }
     
     
@@ -767,6 +794,40 @@
         </div>
     </section>
 
+<!-- AVALIAÇÕES GOOGLE -->
+    <section id="avaliacoes" class="avaliacoes">
+        <div class="container">
+            <h2>O que dizem sobre o atendimento</h2>
+            <p class="desc">Avaliações reais de pacientes, direto do Google.</p>
+            <div id="reviews-container" class="grid-avaliacoes">
+                <p>Carregando avaliações...</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        fetch('data/reviews.json')
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById('reviews-container');
+                if (!data.reviews || data.reviews.length === 0) {
+                    container.innerHTML = '<p>Novas avaliações em breve.</p>';
+                    return;
+                }
+                container.innerHTML = data.reviews.map(r => `
+                    <div class="card-avaliacao">
+                        <div class="estrelas-avaliacao">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+                        <p class="texto-avaliacao">${r.text.replace(/</g, '&lt;')}</p>
+                        <p class="autor-avaliacao">${r.author.replace(/</g, '&lt;')}</p>
+                    </div>
+                `).join('');
+            })
+            .catch(() => {
+                document.getElementById('reviews-container').innerHTML = '<p>Não foi possível carregar as avaliações no momento.</p>';
+            });
+    </script>
+
+    
     <!-- CONTATO E MAPA -->
     <section id="contato" class="contato">
         <div class="container contato-grid">
