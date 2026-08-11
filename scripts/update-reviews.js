@@ -19,6 +19,7 @@ async function main() {
 
   const reviews = (data.reviews || [])
     .filter(r => r.rating >= 4)
+    .sort((a, b) => b.rating - a.rating)
     .map(r => ({
       author: r.authorAttribution?.displayName || 'Paciente',
       rating: r.rating,
