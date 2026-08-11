@@ -348,18 +348,27 @@
         .grid-tartaro { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin: 0 auto; }
         .disclaimer-resultados { font-size: 0.85rem; color: #999; font-style: italic; margin-top: 40px; }
 
-        /* ================= AVALIAÇÕES GOOGLE ================= */
+       /* ================= AVALIAÇÕES GOOGLE ================= */
         .avaliacoes { padding: 80px 0; background-color: var(--off-white); text-align: center; }
         .avaliacoes h2 { font-size: 2.5rem; margin-bottom: 10px; }
         .avaliacoes p.desc { color: var(--texto-claro); margin-bottom: 50px; font-size: 1.1rem; }
-        .grid-avaliacoes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
+        .carrossel-avaliacoes-wrapper {
+            position: relative;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 50px;
         }
+        .trilho-avaliacoes {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            padding: 10px 0;
+        }
+        .trilho-avaliacoes::-webkit-scrollbar { display: none; }
         .card-avaliacao {
+            flex: 0 0 320px;
             background: var(--branco);
             padding: 30px;
             border-radius: 20px;
@@ -370,8 +379,6 @@
         .estrelas-avaliacao { color: var(--rose-vibrante); font-size: 1.1rem; margin-bottom: 12px; }
         .texto-avaliacao { font-size: 0.95rem; color: var(--texto-escuro); line-height: 1.6; margin-bottom: 16px; }
         .autor-avaliacao { font-weight: 600; font-size: 0.9rem; color: var(--texto-claro); }
-
-
         
         /* ================= CONTATO ================= */
         .contato { padding: 80px 0; background-color: var(--off-white); }
@@ -529,8 +536,9 @@
         .card-endereco {
             text-align: center;
         }
-          .avaliacoes { padding: 50px 0; }
-        .avaliacoes h2 { font-size: 1.6rem; }  
+           .avaliacoes { padding: 50px 0; }
+        .avaliacoes h2 { font-size: 1.6rem; }
+        .card-avaliacao { flex: 0 0 85%; }
     }
     
     
@@ -798,10 +806,14 @@
     <section id="avaliacoes" class="avaliacoes">
         <div class="container">
             <h2>O que dizem sobre o atendimento</h2>
-            <p class="desc">Avaliações reais de pacientes, direto do Google.</p>
-            <div id="reviews-container" class="grid-avaliacoes">
+            <p class="desc">Veja o que dizem sobre o atendimento, direto do perfil no Google.</p>
+        </div>
+        <div class="carrossel-avaliacoes-wrapper">
+            <button class="seta-tecnica seta-tecnica-esq" onclick="rolarAvaliacoes(-1)"><i class="fas fa-chevron-left"></i></button>
+            <div class="trilho-avaliacoes" id="trilhoAvaliacoes">
                 <p>Carregando avaliações...</p>
             </div>
+            <button class="seta-tecnica seta-tecnica-dir" onclick="rolarAvaliacoes(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -809,22 +821,27 @@
         fetch('data/reviews.json')
             .then(res => res.json())
             .then(data => {
-                const container = document.getElementById('reviews-container');
+                const container = document.getElementById('trilhoAvaliacoes');
                 if (!data.reviews || data.reviews.length === 0) {
                     container.innerHTML = '<p>Novas avaliações em breve.</p>';
                     return;
                 }
                 container.innerHTML = data.reviews.map(r => `
                     <div class="card-avaliacao">
-                        <div class="estrelas-avaliacao">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+                        <div class="estrelas-avaliacao">${'★'.repeat(r.rating)}</div>
                         <p class="texto-avaliacao">${r.text.replace(/</g, '&lt;')}</p>
                         <p class="autor-avaliacao">${r.author.replace(/</g, '&lt;')}</p>
                     </div>
                 `).join('');
             })
             .catch(() => {
-                document.getElementById('reviews-container').innerHTML = '<p>Não foi possível carregar as avaliações no momento.</p>';
+                document.getElementById('trilhoAvaliacoes').innerHTML = '<p>Não foi possível carregar as avaliações no momento.</p>';
             });
+
+        function rolarAvaliacoes(direcao) {
+            const trilho = document.getElementById('trilhoAvaliacoes');
+            trilho.scrollBy({ left: direcao * 340, behavior: 'smooth' });
+        }
     </script>
 
     
