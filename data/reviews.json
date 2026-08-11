@@ -1,0 +1,37 @@
+{
+  "updatedAt": "2026-08-11T00:27:41.434Z",
+  "overallRating": 5,
+  "totalReviews": 52,
+  "reviews": [
+    {
+      "author": "Ana Lúcia Leal",
+      "rating": 5,
+      "text": "Excelente profissional, muito educada e competente.",
+      "relativeTime": "um mês atrás"
+    },
+    {
+      "author": "Carlos Augusto Pedrosa Gondim",
+      "rating": 5,
+      "text": "Ótimo atendimento! Muito profissional!!",
+      "relativeTime": "um mês atrás"
+    },
+    {
+      "author": "Tina Calado",
+      "rating": 5,
+      "text": "Excelente profissional. Recomendo demais!",
+      "relativeTime": "um mês atrás"
+    },
+    {
+      "author": "isabelle Guerra",
+      "rating": 5,
+      "text": "Profissional excelente, muito atenciosa e caprichosa!! Nota 1000",
+      "relativeTime": "um mês atrás"
+    },
+    {
+      "author": "sergio lustoza",
+      "rating": 4,
+      "text": "Boa tarde, recomendo Dra Rachel Leal, profissional gabaritada, atendimento de qualidade, pontualidade exemplar a qualidade do seu trabalho é impecável.\nParabéns Dra. Rachel",
+      "relativeTime": "um mês atrás"
+    }
+  ]
+}
